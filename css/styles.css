@@ -1,0 +1,15 @@
+/* import de la fuente Orbitron y Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 60px;
+  color : #FFFFFF;
+}
+
+body {
+  background-color: #000000;
+}
