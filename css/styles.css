@@ -96,3 +96,38 @@ img {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 255, 100, 0.4);
 }
+
+/* Estilo general de las cards */
+.card {
+  background-color: #111;        /* fondo negro */
+  border: 2px solid #00ff00;     /* borde verde neón */
+  color: #fff;                   /* texto blanco */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover para dar efecto */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ff00;
+}
+
+/* Botón */
+.card .btn-primary {
+  background-color: #00ff00;
+  border: none;
+  color: #111;
+  font-weight: bold;
+}
+
+.card .btn-primary:hover {
+  background-color: #00cc00;
+  color: #fff;
+}
+
+/* Imagenes uniformes */
+.fixed-size {
+  width: 100%;
+  height: 200px;         /* altura fija */
+  object-fit: cover;     /* recorta la imagen sin deformar */
+  border-bottom: 2px solid #00ff00; /* borde verde debajo de la imagen */
+}
