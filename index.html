@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Level-UP | Inicio</title>
 </head>
 <body>
@@ -44,14 +44,38 @@
     </header>
 
     <!-- BANNER -->
-    <section class="banner">
-        <div class="text">
-        <h1>Level-UP Gamer</h1>
-        <p>¡Desafía tus límites y únete a la comunidad gamer! Consolas, accesorios y más con envío a todo Chile.</p>
-        <a href="productos.html" class="btn">Ver productos</a>
+    <section class="banner py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+            
+            <!-- Texto -->
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold animate-text">Level-UP Gamer</h1>
+                <p class="lead animate-text-delay">¡Desafía tus límites y únete a la comunidad gamer! Consolas, accesorios y más con envío a todo Chile.</p>
+                <p class="mb-3 animate-text-delay2">
+                Productos de alta calidad para cada gamer, con envíos rápidos y seguros.
+                </p>
+
+                <div class="mb-3 animate-text-delay3">
+                <span class="material-icons align-middle">local_shipping</span> Envío a todo Chile<br>
+                <span class="material-icons align-middle">sports_esports</span> Amplia variedad de productos<br>
+                <span class="material-icons align-middle">star</span> Calidad y confianza garantizadas
+                </div>
+
+                <a href="productos.html" class="btn btn-primary btn-lg animate-button">Explora nuestros productos</a>
+            </div>
+
+            <!-- Imagen -->
+            <div class="col-md-6 text-center d-none d-md-block"> <!-- Oculta en móviles -->
+                <img src="/img/banner2.png" alt="Banner Gamer" class="img-fluid animate-img banner-img">
+            </div>
+
+            </div>
         </div>
-        <img src="/img/banner.png" alt="Banner Gamer">
     </section>
+
+    <!-- DIVISOR -->
+    <div class="banner-divider"></div>
 
     <!-- PRODUCTOS -->
     <main class="productos" id="productos">
@@ -59,56 +83,56 @@
         <div class="grid-productos">
 
         <div class="card">
-            <img src="/img/productos/catan.jpg" alt="Catan">
+            <img src="/img/catan.png" alt="Catan">
             <h6>Catan</h6>
             <p class="descripcion">Juego de estrategia ideal para 3-4 jugadores.</p>
             <p class="precio">$29.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/carcassonne.jpg" alt="Carcassonne">
+            <img src="/img/carcassone.webp" alt="Carcassonne">
             <h6>Carcassonne</h6>
             <p class="descripcion">Construye paisajes medievales con fichas.</p>
             <p class="precio">$24.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/xbox_controller.jpg" alt="Control Xbox">
+            <img src="/img/mando xbox.png" alt="Control Xbox">
             <h6>Control Xbox Series X</h6>
             <p class="descripcion">Ergonomía y botones mapeables.</p>
             <p class="precio">$59.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/hyperx.jpg" alt="Auriculares HyperX">
+            <img src="/img/audifonos hyperx.webp" alt="Auriculares HyperX">
             <h6>Auriculares HyperX Cloud II</h6>
             <p class="descripcion">Sonido envolvente + micrófono desmontable.</p>
             <p class="precio">$79.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/ps5.jpg" alt="PlayStation 5">
+            <img src="/img/ps5.webp" alt="PlayStation 5">
             <h6>PlayStation 5</h6>
             <p class="descripcion">Gráficos de nueva generación.</p>
             <p class="precio">$549.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/asus_rog.jpg" alt="PC Gamer ASUS">
+            <img src="/img/pc gamer.png" alt="PC Gamer ASUS">
             <h6>PC Gamer ASUS ROG Strix</h6>
             <p class="descripcion">Rendimiento excepcional en todos los juegos.</p>
             <p class="precio">$1.299.990 CLP</p>
         </div>
 
             <div class="card">
-            <img src="/img/productos/secretlab.jpg" alt="Silla Secretlab">
+            <img src="/img/silla gamer.webp" alt="Silla Secretlab">
             <h6>Silla Gamer Secretlab Titan</h6>
             <p class="descripcion">Soporte ergonómico para largas sesiones.</p>
             <p class="precio">$349.990 CLP</p>
         </div>
 
         <div class="card">
-            <img src="/img/productos/logitech_g502.jpg" alt="Mouse Logitech">
+            <img src="/img/mouse.webp" alt="Mouse Logitech">
             <h6>Mouse Logitech G502 HERO</h6>
             <p class="descripcion">Sensor de alta precisión y personalización.</p>
             <p class="precio">$49.990 CLP</p>
