@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +11,36 @@
     <title>Level-UP | Productos</title>
 </head>
 <body>
-     <header>
+    <header>
         <nav>
-            <div class="logo"><a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo_Level-U"></a></div>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="Nosotros.html">Nosotros</a></li>
-                <li><a href="Blogs.html"></a>Blogs</li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="icons">
-                <a href="#"><span class="material-icons">shopping_cart</span></a>
-                <a href="#"><span class="material-icons">persona</span></a>
-            </div>
+        <div class="logo">
+            <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+        </div>
+        <!-- Botón hamburguesa -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><span class="material-icons">shopping_cart</span></a>
+            <a href="login.html"><span class="material-icons">person</span></a>
+        </div>
         </nav>
+        <script>
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+        </script>
     </header>
 
 
