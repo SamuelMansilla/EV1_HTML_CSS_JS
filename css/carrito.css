@@ -1,0 +1,90 @@
+/* ===== AJUSTES DEL CARRITO ===== */
+.carrito-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 12px;
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.carrito-item .d-flex.align-items-center.mb-2.mb-md-0 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.carrito-item .carrito-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.carrito-item div > h6,
+.carrito-item div > p {
+  margin-left: 10px;
+}
+
+.carrito-item h6 {
+  font-weight: bold;
+  color: #39FF14;
+}
+
+.carrito-item p {
+  color: #f5ecec;
+  margin-bottom: 0;
+}
+
+button.btn-outline-secondary {
+  min-width: 32px;
+}
+
+.card.sticky-top {
+  background-color: #111;
+  color: #ffffff;
+}
+
+.card.sticky-top h4,
+.card.sticky-top p strong,
+.card.sticky-top p {
+  color: #ffffff;
+}
+
+/* ===== BOTONES DE CANTIDAD EN EL CARRITO ===== */
+.carrito-item .btn-outline-secondary {
+  background-color: #222;
+  color: #ffffff;
+  border-color: #555;
+  transition: 0.3s;
+}
+
+.carrito-item .btn-outline-secondary:hover {
+  background-color: #39FF14;
+  color: #000;
+  border-color: #39FF14;
+}
+
+.carrito-item .cantidad {
+  color: #ffffff;
+  font-weight: bold;
+  min-width: 24px;
+  text-align: center;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .carrito-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .carrito-item .d-flex.align-items-center.gap-2 {
+    margin-top: 10px;
+  }
+}
