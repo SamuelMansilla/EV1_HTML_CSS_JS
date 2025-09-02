@@ -1,0 +1,135 @@
+/* ===== DETALLE DEL PRODUCTO ===== */
+#detalle-producto {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 100%;
+  padding: 30px;
+  gap: 30px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  border: 2px solid #39FF14;
+  box-shadow: 0 0 25px #39FF14, 0 0 40px #1E90FF;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-detalle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px #39FF14, 0 0 50px #1E90FF;
+}
+
+.img-container {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #39FF14, 0 0 30px #1E90FF;
+}
+
+.info {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 38px;
+  color: #39FF14;
+  text-shadow: 0 0 10px #1E90FF, 0 0 20px #39FF14;
+  margin-bottom: 15px;
+}
+
+.info p.lead {
+  font-weight: bold;
+  color: #39FF14;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.info p.descripcion {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.cantidad-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cantidad-container input {
+  width: 70px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #39FF14;
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 5px #39FF14 inset, 0 0 8px #1E90FF inset;
+  transition: all 0.2s ease;
+}
+
+.cantidad-container input:focus {
+  box-shadow: 0 0 10px #39FF14 inset, 0 0 15px #1E90FF inset;
+  outline: none;
+}
+
+.cantidad-container label {
+  font-weight: bold;
+  color: #39FF14;
+}
+
+.info button {
+  background-color: #39FF14;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+.info button:hover {
+  background-color: #1E90FF;
+  color: #fff;
+  box-shadow: 0 0 15px #39FF14, 0 0 25px #1E90FF;
+}
+
+@media (max-width: 768px) {
+  .card-detalle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info button {
+    width: 80%;
+  }
+
+  .cantidad-container {
+    justify-content: center;
+  }
+}
