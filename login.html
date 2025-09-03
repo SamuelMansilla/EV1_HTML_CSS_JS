@@ -58,28 +58,28 @@
         </div>
 
         <!-- FORMULARIO REGISTRO -->
-        <div class="form-box" id="registerForm">
-        <h2>Registro</h2>
-        <form>
-            <input type="text" placeholder="Nombre de usuario" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Crear cuenta</button>
-        </form>
-        <div class="toggle-form">
-            ¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a>
-        </div>
-        </div>
-    </div>
+        <div class="form-box" id="registerForm" style="display:none;">
+            <h2>Registro</h2>
+            <form id="registerFormElement">
+                <input type="text" id="registerUsername" placeholder="Nombre de usuario" required>
+                <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+                <input type="password" id="registerPassword" placeholder="Contraseña" required>
 
-    <script>
-        function toggleForms() {
-        document.getElementById("loginForm").style.display =
-            document.getElementById("loginForm").style.display === "none" ? "block" : "none";
-        document.getElementById("registerForm").style.display =
-            document.getElementById("registerForm").style.display === "block" ? "none" : "block";
-        }
-    </script>
+                <!-- Selección de rol -->
+                <select id="registerRole" required>
+                    <option value="">Selecciona tu rol</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="admin">Administrador</option>
+                </select>
+
+                <button type="submit">Crear cuenta</button>
+            </form>
+            <div class="toggle-form">
+                ¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a>
+            </div>
+        </div>
+
+    <script src="/js/login.js"></script>
     
 </body>
 </html>
