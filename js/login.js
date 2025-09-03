@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "/index.html";
             }
         } else {
-            alert("Correo o contraseña incorrectos.");
+            alert("Correo o contraseña incorrecto.");
         }
     });
 });
