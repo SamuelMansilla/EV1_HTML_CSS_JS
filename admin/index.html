@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/admin.css"> <!-- CSS específico para admin -->
+  <link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
+  <title>Level-UP | Administrador</title>
+</head>
+<body>
+  <!-- HEADER ADMIN -->
+  <header>
+        <nav>
+        <div class="logo">
+            <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+        </div>
+        <!-- Botón hamburguesa -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../productos.html">Productos</a></li>
+            <li><a href="../Nosotros.html">Nosotros</a></li>
+            <li><a href="../Blogs.html">Blogs</a></li>
+            <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+        <div class="icons">
+
+            <a href="../carrito.html"><span class="material-icons">shopping_cart</span></a>
+            <a href="../login.html"><span class="material-icons">person</span></a>
+       
+        </div>
+        </nav>
+        <script>
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+        </script>
+    </header>
+
+  <div class="d-flex">
+    <!-- SIDEBAR -->
+    <aside class="bg-secondary text-white p-3" style="min-width:220px; height:100vh;">
+      <h5 class="mb-4">Menú</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="admin_home.html" class="nav-link text-white"><span class="material-icons align-middle">dashboard</span> Home</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="admin_productos.html" class="nav-link text-white"><span class="material-icons align-middle">inventory_2</span> Productos</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="admin_usuarios.html" class="nav-link text-white"><span class="material-icons align-middle">group</span> Usuarios</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow-1 p-4">
+      <h3>Bienvenido Administrador 👋</h3>
+      <p>Desde aquí puedes gestionar <strong>productos</strong> y <strong>usuarios</strong> de la tienda.</p>
+
+      <!-- Tarjetas resumen -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card text-center shadow-sm mb-4">
+            <div class="card-body">
+              <span class="material-icons" style="font-size:48px; color:#0d6efd;">inventory_2</span>
+              <h5 class="card-title mt-2">Productos</h5>
+              <p class="card-text">Agrega, edita o elimina productos del catálogo.</p>
+              <a href="admin_productos.html" class="btn btn-primary">Ir a Productos</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card text-center shadow-sm mb-4">
+            <div class="card-body">
+              <span class="material-icons" style="font-size:48px; color:#198754;">group</span>
+              <h5 class="card-title mt-2">Usuarios</h5>
+              <p class="card-text">Administra clientes, vendedores y administradores.</p>
+              <a href="admin_usuarios.html" class="btn btn-success">Ir a Usuarios</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light text-center py-3">
+    <p>© 2025 Level-UP Gamer - Panel Administrador</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
