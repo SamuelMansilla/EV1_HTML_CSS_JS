@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Level-UP | Administrador</title>
+  <title>Level-UP | Admin Usuarios</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/admin.css">
   <link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
@@ -15,9 +15,8 @@
     <div class="logo">
       <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
     </div>
-    <h2 class="m-0">Panel Administrador</h2>
-    <!-- Botón hamburguesa -->
-    <div class="menu-toggle d-md-none" id="sidebarToggle">
+    <h2 class="m-0">Administrar Usuarios</h2>
+    <div class="menu-toggle" id="sidebarToggle">
       <span></span>
       <span></span>
       <span></span>
@@ -30,7 +29,7 @@
       <h5 class="mb-4">Menú</h5>
       <ul class="nav flex-column">
         <li class="nav-item mb-2">
-          <a href="index.html" class="nav-link active">
+          <a href="index.html" class="nav-link">
             <span class="material-icons align-middle">dashboard</span> Home
           </a>
         </li>
@@ -40,7 +39,7 @@
           </a>
         </li>
         <li class="nav-item mb-2">
-          <a href="admin_usuarios.html" class="nav-link">
+          <a href="admin_usuarios.html" class="nav-link active">
             <span class="material-icons align-middle">group</span> Usuarios
           </a>
         </li>
@@ -49,33 +48,55 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="flex-grow-1 p-4">
-      <h3 class="mb-4">Bienvenido Administrador 👋</h3>
-      <p>Desde aquí puedes gestionar <strong>productos</strong> y <strong>usuarios</strong> de la tienda.</p>
+      <h3 class="mb-4">Listado de Usuarios</h3>
 
-      <!-- Tarjetas resumen -->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card text-center shadow-sm mb-4">
-            <div class="card-body">
-              <span class="material-icons" style="font-size:48px; color:#0d6efd;">inventory_2</span>
-              <h5 class="card-title mt-2">Productos</h5>
-              <p class="card-text">Agrega, edita o elimina productos del catálogo.</p>
-              <a href="admin_productos.html" class="btn btn-primary">Ir a Productos</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card text-center shadow-sm mb-4">
-            <div class="card-body">
-              <span class="material-icons" style="font-size:48px; color:#198754;">group</span>
-              <h5 class="card-title mt-2">Usuarios</h5>
-              <p class="card-text">Administra clientes, vendedores y administradores.</p>
-              <a href="admin_usuarios.html" class="btn btn-success">Ir a Usuarios</a>
-            </div>
-          </div>
-        </div>
+      <!-- Tabla usuarios -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-usuarios">
+            <!-- Se llenará con JS -->
+          </tbody>
+        </table>
       </div>
+
+      <hr class="my-4">
+
+      <!-- Formulario nuevo usuario -->
+      <h4>Agregar Nuevo Usuario</h4>
+      <form id="form-usuario" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">ID</label>
+          <input type="text" class="form-control" id="id" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" required maxlength="100">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Rol</label>
+          <select class="form-select" id="rol">
+            <option value="cliente">Cliente</option>
+            <option value="vendedor">Vendedor</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success">Agregar Usuario</button>
+        </div>
+      </form>
     </main>
   </div>
 
@@ -85,12 +106,12 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="/js/admin_usuarios.js"></script>
   <script>
     const sidebarToggle = document.getElementById("sidebarToggle");
     const sidebar = document.getElementById("sidebar");
     const body = document.body;
 
-    // Toggle sidebar y hamburguesa
     sidebarToggle.addEventListener("click", (e) => {
       e.stopPropagation();
       sidebar.classList.toggle("active");
