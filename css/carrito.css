@@ -48,6 +48,7 @@ button.btn-outline-secondary {
 .card.sticky-top {
   background-color: #111;
   color: #ffffff;
+  z-index: 1000;
 }
 
 .card.sticky-top h4,
@@ -56,7 +57,15 @@ button.btn-outline-secondary {
   color: #ffffff;
 }
 
-/* ===== BOTONES DE CANTIDAD EN EL CARRITO ===== */
+.card.sticky-top .btn {
+  margin-bottom: 10px;
+}
+
+.card.sticky-top .btn:last-child {
+  margin-bottom: 0;
+}
+
+/* BOTONES DE CANTIDAD */
 .carrito-item .btn-outline-secondary {
   background-color: #222;
   color: #ffffff;
@@ -87,4 +96,18 @@ button.btn-outline-secondary {
   .carrito-item .d-flex.align-items-center.gap-2 {
     margin-top: 10px;
   }
+}
+
+/* Sticky resumen del carrito */
+.card.resumen {
+  position: sticky;  /* ya estaba sticky-top */
+  top: 20px;
+  z-index: 1000;     /* MENOR que el menú lateral (2000) */
+  background-color: #111;
+  color: #fff;
+}
+
+body.menu-open .card.resumen {
+  pointer-events: none;
+  opacity: 0.5;  /* opcional: difuminar un poco */
 }

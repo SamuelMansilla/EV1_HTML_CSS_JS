@@ -22,6 +22,7 @@ function agregarAlCarrito(id) {
   mostrarCarrito();
 }
 
+
 // Disminuir cantidad
 function disminuirCantidad(id) {
   const item = carrito.find(p => p.id == id);
@@ -102,7 +103,32 @@ function mostrarCarrito() {
   totalCarrito.textContent = calcularTotal().toLocaleString('es-CL');
 }
 
+// Botón pagar
+const btnPagar = document.getElementById("btn-pagar");
+
+if (btnPagar) {
+  btnPagar.addEventListener("click", () => {
+    if (carrito.length === 0) {
+      alert("🛒 Tu carrito está vacío. Agrega productos antes de pagar.");
+      return;
+    }
+
+    const total = calcularTotal().toLocaleString('es-CL');
+
+    // Simulación de pago
+    const confirmar = confirm(`El total a pagar es $${total} CLP. ¿Deseas confirmar el pago?`);
+
+    if (confirmar) {
+      alert("✅ ¡Pago realizado con éxito! Gracias por tu compra.");
+      vaciarCarrito();
+    }
+  });
+}
+
+
+
 // Inicializar visualización
 if (contenedorCarrito) {
   mostrarCarrito();
 }
+
