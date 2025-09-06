@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blogs | Level-UP</title>
   <!-- Estilos generales -->
-  <link rel="stylesheet" href="/css/styles.css">
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
   <!-- CSS personalizado para blogs -->
   <link rel="stylesheet" href="/css/blog.css">
   <!-- Iconos Material -->
@@ -15,25 +15,43 @@
 </head>
 <body>
   <!-- HEADER -->
-  <header>
-    <nav class="d-flex align-items-center justify-content-between p-3">
-      <div class="logo">
-        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up" height="60"></a>
-      </div>
-      <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
-      <ul id="menu" class="d-flex gap-3 list-unstyled m-0">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="blogs.html" class="active">Blogs</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-    <script>
-      const toggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu");
-      toggle.addEventListener("click", () => menu.classList.toggle("show"));
-    </script>
-  </header>
+  <!-- HEADER -->
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="Nosotros.html">Nosotros</a></li>
+      <li><a href="Blogs.html" class="active">Blogs</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="icons">
+      <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+      <a href="login.html"><span class="material-icons">person</span></a>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  </script>
+</header>
+
 
   <!-- MAIN BLOGS -->
   <main class="main-blogs py-5">
@@ -52,6 +70,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Blogs JS -->
   <script src="/js/blogs.js"></script>
+
   <script>
     const contenedorBlogs = document.getElementById("lista-blogs");
 
@@ -67,7 +86,7 @@
           <p>${blog.descripcion}</p>
           <a href="detalle_blog.html?id=${blog.id}">Leer más</a>
         </div>
-<<<<<<< HEAD
+
         <!-- Botón hamburguesa -->
         <div class="menu-toggle" id="menu-toggle">
             <span></span>
@@ -97,12 +116,7 @@
         </script>
     </header>
     <script src="js/auth.js"></script>
-=======
-      `;
 
-      contenedorBlogs.appendChild(div);
-    });
-  </script>
->>>>>>> 6d6c1f1f5d6b17c11d2b654c792ade28d5147501
+
 </body>
 </html>
