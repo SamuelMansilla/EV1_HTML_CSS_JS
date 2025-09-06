@@ -48,6 +48,7 @@ button.btn-outline-secondary {
 .card.sticky-top {
   background-color: #111;
   color: #ffffff;
+  z-index: 500 !important;
 }
 
 .card.sticky-top h4,

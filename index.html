@@ -1,163 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/banner.css">
-    <link rel="stylesheet" href="/css/productos.css">
-    <link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
-    <title>Level-UP | Inicio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/productos.css">
+<link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
+<title>Level-UP | Inicio</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <nav>
-        <div class="logo">
-            <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+<header>
+  <nav>
+    <div class="logo"><a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a></div>
+    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+    <ul id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="Nosotros.html">Nosotros</a></li>
+      <li><a href="Blogs.html">Blogs</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="icons" id="authArea">
+      <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+      <a href="login.html"><span class="material-icons">person</span></a>
+    </div>
+  </nav>
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => menu.classList.toggle("show"));
+  </script>
+</header>
+
+<main>
+<section class="banner py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="display-4 fw-bold animate-text">Level-UP Gamer</h1>
+        <p class="lead animate-text-delay">¡Desafía tus límites y únete a la comunidad gamer! Consolas, accesorios y más con envío a todo Chile.</p>
+        <p class="mb-3 animate-text-delay2">Productos de alta calidad para cada gamer, con envíos rápidos y seguros.</p>
+        <div class="mb-3 animate-text-delay3">
+          <span class="material-icons align-middle">local_shipping</span> Envío a todo Chile<br>
+          <span class="material-icons align-middle">sports_esports</span> Amplia variedad de productos<br>
+          <span class="material-icons align-middle">star</span> Calidad y confianza garantizadas
         </div>
-        <!-- Botón hamburguesa -->
-        <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul id="menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="Blogs.html">Blogs</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="icons">
+        <a href="productos.html" class="btn btn-primary btn-lg animate-button">Explora nuestros productos</a>
+      </div>
+      <div class="col-md-6 text-center d-none d-md-block">
+        <img src="/img/banner2.png" alt="Banner Gamer" class="img-fluid animate-img banner-img">
+      </div>
+    </div>
+  </div>
+</section>
 
-            <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
-            <a href="login.html"><span class="material-icons">person</span></a>
-       
-        </div>
-        </nav>
-        <script>
-        const toggle = document.getElementById("menu-toggle");
-        const menu = document.getElementById("menu");
-        toggle.addEventListener("click", () => {
-            menu.classList.toggle("show");
-        });
-        </script>
-    </header>
+<div class="banner-divider"></div>
 
-    <!-- BANNER -->
-    <section class="banner py-5 bg-dark text-light">
-        <div class="container">
-            <div class="row align-items-center">
-            
-            <!-- Texto -->
-            <div class="col-md-6">
-                <h1 class="display-4 fw-bold animate-text">Level-UP Gamer</h1>
-                <p class="lead animate-text-delay">¡Desafía tus límites y únete a la comunidad gamer! Consolas, accesorios y más con envío a todo Chile.</p>
-                <p class="mb-3 animate-text-delay2">
-                Productos de alta calidad para cada gamer, con envíos rápidos y seguros.
-                </p>
+<section class="categories container" id="categories">
+  <h2 class="section-title">Categorías</h2>
+  <div class="category-grid">
+    <div class="category-card" data-category="all"><div class="category-icon"><i class="fas fa-th-large"></i></div><h3>Todos</h3></div>
+    <div class="category-card" data-category="juegos de mesa"><div class="category-icon"><i class="fas fa-dice"></i></div><h3>Juegos de Mesa</h3></div>
+    <div class="category-card" data-category="accesorios"><div class="category-icon"><i class="fas fa-gamepad"></i></div><h3>Accesorios</h3></div>
+    <div class="category-card" data-category="consolas"><div class="category-icon"><i class="fas fa-tv"></i></div><h3>Consolas</h3></div>
+    <div class="category-card" data-category="computadores gamers"><div class="category-icon"><i class="fas fa-desktop"></i></div><h3>PCs Gamer</h3></div>
+    <div class="category-card" data-category="sillas gamers"><div class="category-icon"><i class="fas fa-chair"></i></div><h3>Sillas Gamer</h3></div>
+    <div class="category-card" data-category="mouse"><div class="category-icon"><i class="fas fa-mouse"></i></div><h3>Mouse</h3></div>
+    <div class="category-card" data-category="mousepad"><div class="category-icon"><i class="fas fa-square"></i></div><h3>Mousepad</h3></div>
+    <div class="category-card" data-category="poleras personalizadas"><div class="category-icon"><i class="fas fa-tshirt"></i></div><h3>Poleras</h3></div>
+  </div>
+</section>
 
-                <div class="mb-3 animate-text-delay3">
-                <span class="material-icons align-middle">local_shipping</span> Envío a todo Chile<br>
-                <span class="material-icons align-middle">sports_esports</span> Amplia variedad de productos<br>
-                <span class="material-icons align-middle">star</span> Calidad y confianza garantizadas
-                </div>
+<section class="products container" id="products">
+  <h2 class="section-title">Nuestros Productos</h2>
+  <div class="filters">
+    <input type="text" class="filter-input" placeholder="Buscar productos..." id="searchInput">
+    <select class="filter-input" id="priceFilter">
+      <option value="">Filtrar por precio</option>
+      <option value="0-30000">$0 - $30.000</option>
+      <option value="30000-100000">$30.000 - $100.000</option>
+      <option value="100000-500000">$100.000 - $500.000</option>
+      <option value="500000+">Más de $500.000</option>
+    </select>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+</main>
 
-                <a href="productos.html" class="btn btn-primary btn-lg animate-button">Explora nuestros productos</a>
-            </div>
+<footer>
+  <p>© 2025 Level-UP Gamer - Todos los derechos reservados</p>
+  <div>
+    <a href="#">Juegos de Mesa</a>
+    <a href="#">Consolas</a>
+    <a href="#">Accesorios</a>
+    <a href="#">Computadores</a>
+  </div>
+  <form>
+    <input type="email" placeholder="Ingresa tu email">
+    <button type="submit">Suscribirse</button>
+  </form>
+</footer>
 
-            <!-- Imagen -->
-            <div class="col-md-6 text-center d-none d-md-block"> <!-- Oculta en móviles -->
-                <img src="/img/banner2.png" alt="Banner Gamer" class="img-fluid animate-img banner-img">
-            </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- DIVISOR -->
-    <div class="banner-divider"></div>
-
-    <!-- PRODUCTOS -->
-    <main class="productos" id="productos">
-        <h2>Nuestros Productos</h2>
-        <div class="grid-productos">
-
-        <div class="card">
-            <img src="/img/catan.png" alt="Catan">
-            <h6>Catan</h6>
-            <p class="descripcion">Juego de estrategia ideal para 3-4 jugadores.</p>
-            <p class="precio">$29.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/carcassone.webp" alt="Carcassonne">
-            <h6>Carcassonne</h6>
-            <p class="descripcion">Construye paisajes medievales con fichas.</p>
-            <p class="precio">$24.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/mando xbox.png" alt="Control Xbox">
-            <h6>Control Xbox Series X</h6>
-            <p class="descripcion">Ergonomía y botones mapeables.</p>
-            <p class="precio">$59.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/audifonos hyperx.webp" alt="Auriculares HyperX">
-            <h6>Auriculares HyperX Cloud II</h6>
-            <p class="descripcion">Sonido envolvente + micrófono desmontable.</p>
-            <p class="precio">$79.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/ps5.webp" alt="PlayStation 5">
-            <h6>PlayStation 5</h6>
-            <p class="descripcion">Gráficos de nueva generación.</p>
-            <p class="precio">$549.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/pc gamer.png" alt="PC Gamer ASUS">
-            <h6>PC Gamer ASUS ROG Strix</h6>
-            <p class="descripcion">Rendimiento excepcional en todos los juegos.</p>
-            <p class="precio">$1.299.990 CLP</p>
-        </div>
-
-            <div class="card">
-            <img src="/img/silla gamer.webp" alt="Silla Secretlab">
-            <h6>Silla Gamer Secretlab Titan</h6>
-            <p class="descripcion">Soporte ergonómico para largas sesiones.</p>
-            <p class="precio">$349.990 CLP</p>
-        </div>
-
-        <div class="card">
-            <img src="/img/mouse.webp" alt="Mouse Logitech">
-            <h6>Mouse Logitech G502 HERO</h6>
-            <p class="descripcion">Sensor de alta precisión y personalización.</p>
-            <p class="precio">$49.990 CLP</p>
-        </div>
-
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Level-UP Gamer - Todos los derechos reservados</p>
-        <div>
-        <a href="#">Juegos de Mesa</a>
-        <a href="#">Consolas</a>
-        <a href="#">Accesorios</a>
-        <a href="#">Computadores</a>
-        </div>
-        <form>
-        <input type="email" placeholder="Ingresa tu email">
-        <button type="submit">Suscribirse</button>
-        </form>
-    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="/js/productos.js"></script>
 </body>
 </html>
