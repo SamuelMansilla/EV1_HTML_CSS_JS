@@ -12,35 +12,38 @@
 <body>
   <!-- HEADER -->
   <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
-      </div>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul id="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <div class="icons">
-        <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
-        <a href="#"><span class="material-icons">person</span></a>
-      </div>
-    </nav>
-    <script>
-      const toggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu");
-      toggle.addEventListener("click", () => {
-        menu.classList.toggle("show");
-      });
-    </script>
-  </header>
+        <nav>
+        <div class="logo">
+            <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+        </div>
+        <!-- Botón hamburguesa -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="icons" id="authArea">
+
+            <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+            <a href="login.html"><span class="material-icons">person</span></a>
+       
+        </div>
+        </nav>
+        <script>
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+        </script>
+    </header>
 
  <main class="container py-5">
   <h1 class="text-center mb-5">Sobre Level-UP Gamer</h1>
@@ -80,5 +83,6 @@
   <footer class="text-center py-4" style="background-color:#0a0a0a; border-top:2px solid #39FF14; color:#ccc;">
     © 2025 Level-UP Gamer - Todos los derechos reservados
   </footer>
+  <script src="js/auth.js"></script>
 </body>
 </html>

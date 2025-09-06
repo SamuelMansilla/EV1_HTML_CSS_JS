@@ -2,15 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#loginForm form");
     const registerForm = document.querySelector("#registerFormElement");
 
-    // Cambiar entre login y registro
-    window.toggleForms = function() {
-        document.getElementById("loginForm").style.display =
-            document.getElementById("loginForm").style.display === "none" ? "block" : "none";
-        document.getElementById("registerForm").style.display =
-            document.getElementById("registerForm").style.display === "block" ? "none" : "block";
+    // Alternar entre login y registro
+    window.toggleForms = function () {
+        const loginBox = document.getElementById("loginForm");
+        const registerBox = document.getElementById("registerForm");
+
+        if (loginBox.style.display === "none") {
+            loginBox.style.display = "block";
+            registerBox.style.display = "none";
+        } else {
+            loginBox.style.display = "none";
+            registerBox.style.display = "block";
+        }
     };
 
-    // Registro con rol
+    // Registro con rol y guardado en localStorage
     registerForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -24,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Guardar usuario simulado en localStorage
         const user = { username, email, password, role };
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -32,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleForms();
     });
 
-    // Login con redirección según rol
+    // Login con validación y redirección por rol
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -42,13 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = JSON.parse(localStorage.getItem("user"));
 
         if (user && user.email === email && user.password === password) {
+            alert(`Bienvenido ${user.username}`);
+
             if (user.role === "admin") {
                 window.location.href = "/admin/index.html";
             } else {
                 window.location.href = "/index.html";
             }
         } else {
-            alert("Correo o contraseña incorrecto.");
+            alert("Correo o contraseña incorrectos.");
         }
     });
 });
