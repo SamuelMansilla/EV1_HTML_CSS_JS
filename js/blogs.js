@@ -49,7 +49,7 @@ const contenedorBlogs = document.getElementById("lista-blogs");
 if (contenedorBlogs) {
   blogs.forEach(blog => {
     const cardDiv = document.createElement("div");
-    cardDiv.className = "col-md-4 mb-4";
+    cardDiv.className = "blog-card-wrapper";
 
     cardDiv.innerHTML = `
       <div class="card h-100 shadow-sm">

@@ -1,0 +1,30 @@
+form {
+  background: var(--color-glass);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neon);
+  color: var(--color-text);
+}
+
+input, textarea {
+  background-color: #111;
+  color: var(--color-text);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+button.btn-primary {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  color: #000;
+  font-weight: bold;
+  box-shadow: var(--shadow-neon);
+}
+
+button.btn-primary:hover {
+  transform: scale(1.05);
+  color: var(--color-text);
+}
