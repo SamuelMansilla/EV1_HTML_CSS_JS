@@ -186,7 +186,11 @@ footer button:hover {
 /* ===== RESPONSIVE MENU LATERAL OSCURO ===== */
 @media (max-width: 768px) {
   .logo { display: none; }
-  .menu-toggle { display: flex; order: -1; z-index: 1001; }
+  .menu-toggle { 
+    display: flex; 
+    order: -1; 
+    z-index: 1003; /* Aumentado para estar sobre el menú */
+  }
   .icons { margin-left: auto; }
 
   ul {
@@ -199,7 +203,7 @@ footer button:hover {
     flex-direction: column;
     padding: 80px 20px 20px;
     transition: left 0.4s ease, box-shadow 0.4s ease, filter 0.3s;
-    z-index: 1000;
+    z-index: 1002; /* Aumentado para estar sobre el contenido */
     box-shadow: 4px 0 25px rgba(0,0,0,0.8);
     backdrop-filter: blur(6px);
     z-index: 2000 !important;
@@ -235,6 +239,12 @@ footer button:hover {
     text-shadow: 0 0 5px var(--color-secondary);
     background: linear-gradient(to right, rgba(57,255,20,0.35), rgba(30,144,255,0.35));
   }
+  
+  /* NUEVA REGLA: Cuando el menú está abierto, deshabilitar interacción con el contenido detrás */
+  ul.show + main {
+    pointer-events: none;
+    filter: blur(2px);
+  }
 }
 
 /* ===== ANIMACIÓN MENÚ ===== */
@@ -243,6 +253,7 @@ footer button:hover {
   100% { transform: translateX(0); opacity: 1; }
 }
 
+<<<<<<< HEAD
 /* ===== SECCIÓN CATEGORÍAS ===== */
 .categories {
   padding: 4rem 0;
@@ -337,4 +348,9 @@ footer button:hover {
 .product-card .btn {
   font-size: 0.9rem;
   margin-top: 0.3rem;
+=======
+body.menu-open .card.resumen {
+  pointer-events: none;
+  opacity: 0.5;  /* opcional: difuminar un poco */
+>>>>>>> 6d6c1f1f5d6b17c11d2b654c792ade28d5147501
 }
