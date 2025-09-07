@@ -1,30 +1,75 @@
+/* ===== FORMULARIO DE CONTACTO ===== */
 form {
-  background: var(--color-glass);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-neon);
-  color: var(--color-text);
+  background: rgba(20, 20, 20, 0.85); /* más oscuro y con transparencia */
+  backdrop-filter: blur(12px) saturate(150%);
+  border-radius: var(--radius, 12px);
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.2), 0 0 40px rgba(30, 144, 255, 0.15);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px var(--color-primary), 0 0 50px rgba(30, 144, 255, 0.4);
+}
+
+/* ===== CAMPOS DE TEXTO ===== */
 input, textarea {
-  background-color: #111;
-  color: var(--color-text);
-  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(15, 15, 15, 0.9);
+  color: var(--color-text, #fff);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(200,200,200,0.6);
+  font-style: italic;
 }
 
 input:focus, textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 10px var(--color-primary);
+  border-color: var(--color-primary, #39FF14);
+  box-shadow: 0 0 12px var(--color-primary), inset 0 0 8px rgba(57, 255, 20, 0.3);
+  outline: none;
 }
 
+/* ===== BOTÓN ENVIAR ===== */
 button.btn-primary {
-  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: #000;
-  font-weight: bold;
-  box-shadow: var(--shadow-neon);
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 2rem;
+  box-shadow: 0 0 15px var(--color-primary), 0 0 30px rgba(30, 144, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 button.btn-primary:hover {
-  transform: scale(1.05);
+  transform: scale(1.07) translateY(-2px);
   color: var(--color-text);
+  box-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-primary);
+}
+
+/* ===== EFECTO DE "BARRA NEÓN" EN FOCUS ===== */
+input:focus, textarea:focus {
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 10px var(--color-primary), inset 0 0 6px rgba(57,255,20,0.3);
+  }
+  to {
+    box-shadow: 0 0 20px var(--color-secondary), inset 0 0 12px rgba(30,144,255,0.4);
+  }
+}
+
+.form-text {
+  color: var(--color-primary, #39FF14) !important; /* verde neón */
+  font-size: 0.9rem;
+  text-shadow: 0 0 6px var(--color-secondary, #1E90FF);
 }
