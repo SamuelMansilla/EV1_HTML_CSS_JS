@@ -7,30 +7,29 @@ function guardarCarrito() {
 }
 
 // Agregar producto (o aumentar cantidad)
-function agregarAlCarrito(id) {
-  const producto = productos.find(p => p.id == id);
+function agregarAlCarrito(code) {
+  const producto = products.find(p => p.code === code);
   if (!producto) return;
 
-  const item = carrito.find(p => p.id == id);
+  const item = carrito.find(p => p.code === code);
   if (item) {
-    item.cantidad++;
+    item.quantity++;
   } else {
-    carrito.push({ ...producto, cantidad: 1 });
+    carrito.push({ ...producto, quantity: 1 });
   }
 
   guardarCarrito();
   mostrarCarrito();
 }
 
-
 // Disminuir cantidad
-function disminuirCantidad(id) {
-  const item = carrito.find(p => p.id == id);
+function disminuirCantidad(code) {
+  const item = carrito.find(p => p.code === code);
   if (!item) return;
 
-  item.cantidad--;
-  if (item.cantidad <= 0) {
-    carrito = carrito.filter(p => p.id != id);
+  item.quantity--;
+  if (item.quantity <= 0) {
+    carrito = carrito.filter(p => p.code !== code);
   }
 
   guardarCarrito();
@@ -38,8 +37,8 @@ function disminuirCantidad(id) {
 }
 
 // Eliminar producto
-function eliminarProducto(id) {
-  carrito = carrito.filter(p => p.id != id);
+function eliminarProducto(code) {
+  carrito = carrito.filter(p => p.code !== code);
   guardarCarrito();
   mostrarCarrito();
 }
@@ -53,7 +52,7 @@ function vaciarCarrito() {
 
 // Calcular total
 function calcularTotal() {
-  return carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+  return carrito.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
 // Mostrar carrito en el DOM
@@ -67,7 +66,7 @@ function mostrarCarrito() {
 
   if (carrito.length === 0) {
     contenedorCarrito.innerHTML = "<p class='text-center'>🛒 El carrito está vacío</p>";
-    totalCarrito.textContent = "0";
+    if (totalCarrito) totalCarrito.textContent = "0";
     return;
   }
 
@@ -77,30 +76,30 @@ function mostrarCarrito() {
 
     itemDiv.innerHTML = `
       <div class="d-flex align-items-center mb-2 mb-md-0">
-        <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid me-3 carrito-img">
+        <img src="${item.image}" alt="${item.name}" class="img-fluid me-3 carrito-img">
         <div>
-          <h6 class="mb-1">${item.nombre}</h6>
-          <p class="mb-0">Precio: $${item.precio.toLocaleString('es-CL')} CLP</p>
-          <p class="mb-0">Subtotal: $${(item.precio * item.cantidad).toLocaleString('es-CL')} CLP</p>
+          <h6 class="mb-1">${item.name}</h6>
+          <p class="mb-0">Precio: $${item.price.toLocaleString('es-CL')} CLP</p>
+          <p class="mb-0">Subtotal: $${(item.price * item.quantity).toLocaleString('es-CL')} CLP</p>
         </div>
       </div>
       <div class="d-flex align-items-center gap-2">
         <button class="btn btn-sm btn-outline-secondary btn-disminuir">➖</button>
-        <span class="cantidad">${item.cantidad}</span>
+        <span class="cantidad">${item.quantity}</span>
         <button class="btn btn-sm btn-outline-secondary btn-aumentar">➕</button>
         <button class="btn btn-sm btn-danger ms-3 btn-eliminar">🗑️</button>
       </div>
     `;
 
     // Agregar eventos a los botones
-    itemDiv.querySelector(".btn-disminuir").addEventListener("click", () => disminuirCantidad(item.id));
-    itemDiv.querySelector(".btn-aumentar").addEventListener("click", () => agregarAlCarrito(item.id));
-    itemDiv.querySelector(".btn-eliminar").addEventListener("click", () => eliminarProducto(item.id));
+    itemDiv.querySelector(".btn-disminuir").addEventListener("click", () => disminuirCantidad(item.code));
+    itemDiv.querySelector(".btn-aumentar").addEventListener("click", () => agregarAlCarrito(item.code));
+    itemDiv.querySelector(".btn-eliminar").addEventListener("click", () => eliminarProducto(item.code));
 
     contenedorCarrito.appendChild(itemDiv);
   });
 
-  totalCarrito.textContent = calcularTotal().toLocaleString('es-CL');
+  if (totalCarrito) totalCarrito.textContent = calcularTotal().toLocaleString('es-CL');
 }
 
 // Botón pagar
@@ -125,10 +124,7 @@ if (btnPagar) {
   });
 }
 
-
-
 // Inicializar visualización
 if (contenedorCarrito) {
   mostrarCarrito();
 }
-

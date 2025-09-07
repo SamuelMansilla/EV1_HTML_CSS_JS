@@ -1,11 +1,11 @@
 // detalle.js
 
-// Obtener el ID del producto desde la URL
+// Obtener el code del producto desde la URL
 const params = new URLSearchParams(window.location.search);
-const idProducto = params.get("id");
+const codeProducto = params.get("code");
 
-// Buscar el producto en el arreglo productos
-const producto = productos.find(p => p.id === idProducto);
+// Buscar el producto en el arreglo products
+const producto = products.find(p => p.code === codeProducto);
 
 // Contenedor donde se mostrará el detalle
 const contenedor = document.getElementById("detalle-producto");
@@ -27,22 +27,22 @@ function guardarCarrito() {
 }
 
 // Agregar al carrito según cantidad
-function agregarAlCarrito(id) {
+function agregarAlCarrito(code) {
   const cantidadInput = document.getElementById("cantidad-producto");
   const cantidad = parseInt(cantidadInput.value) || 1;
 
-  const item = carrito.find(p => p.id === id);
-  const productoEncontrado = productos.find(p => p.id === id);
+  const item = carrito.find(p => p.code === code);
+  const productoEncontrado = products.find(p => p.code === code);
   if (!productoEncontrado) return;
 
   if (item) {
-    item.cantidad += cantidad;
+    item.quantity += cantidad;
   } else {
-    carrito.push({ ...productoEncontrado, cantidad });
+    carrito.push({ ...productoEncontrado, quantity: cantidad });
   }
 
   guardarCarrito();
-  alert(`✅ ${productoEncontrado.nombre} x${cantidad} agregado(s) al carrito`);
+  alert(`✅ ${productoEncontrado.name} x${cantidad} agregado(s) al carrito`);
 }
 
 // Mostrar detalle del producto
@@ -52,12 +52,12 @@ if (producto && contenedor) {
 
   detalleDiv.innerHTML = `
     <div class="col-md-6 img-container">
-      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
     </div>
     <div class="col-md-6 info">
-      <h2>${producto.nombre}</h2>
-      <p class="lead">$${producto.precio.toLocaleString('es-CL')} CLP</p>
-      <p class="descripcion">${producto.descripcion || "Sin descripción disponible"}</p>
+      <h2>${producto.name}</h2>
+      <p class="lead">$${producto.price.toLocaleString('es-CL')} CLP</p>
+      <p class="descripcion">${producto.description || "Sin descripción disponible"}</p>
       <div class="mb-3 d-flex align-items-center gap-2">
         <label for="cantidad-producto" class="me-2">Cantidad:</label>
         <input type="number" id="cantidad-producto" min="1" value="1" class="form-control" style="width:80px;">
@@ -70,7 +70,7 @@ if (producto && contenedor) {
 
   // Evento botón
   const boton = document.getElementById("btn-agregar");
-  boton.addEventListener("click", () => agregarAlCarrito(producto.id));
+  boton.addEventListener("click", () => agregarAlCarrito(producto.code));
 
 } else if (contenedor) {
   contenedor.innerHTML = `<p class="text-danger">❌ Producto no encontrado</p>`;

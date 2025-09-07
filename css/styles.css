@@ -253,7 +253,6 @@ footer button:hover {
   100% { transform: translateX(0); opacity: 1; }
 }
 
-<<<<<<< HEAD
 /* ===== SECCIÓN CATEGORÍAS ===== */
 .categories {
   padding: 4rem 0;
@@ -348,9 +347,8 @@ footer button:hover {
 .product-card .btn {
   font-size: 0.9rem;
   margin-top: 0.3rem;
-=======
-body.menu-open .card.resumen {
+}
+  body.menu-open .card.resumen {
   pointer-events: none;
   opacity: 0.5;  /* opcional: difuminar un poco */
->>>>>>> 6d6c1f1f5d6b17c11d2b654c792ade28d5147501
 }

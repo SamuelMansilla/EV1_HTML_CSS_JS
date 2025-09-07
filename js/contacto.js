@@ -1,4 +1,4 @@
-document.getElementById("form-contacto").addEventListener("submit", function (e) {
+document.getElementById("formContacto").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const nombre = document.getElementById("nombre").value.trim();
