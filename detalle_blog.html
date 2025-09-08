@@ -17,42 +17,40 @@
 </head>
 <body>
   <!-- HEADER -->
-  <!-- HEADER -->
-<header>
-  <nav>
-    <div class="logo">
-      <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
-    </div>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
+      </div>
 
-    <!-- Botón hamburguesa -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <!-- Botón hamburguesa -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    <ul id="menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="Nosotros.html">Nosotros</a></li>
-      <li><a href="Blogs.html" class="active">Blogs</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-
-    <div class="icons">
-      <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
-      <a href="login.html"><span class="material-icons">person</span></a>
-    </div>
-  </nav>
-
-  <script>
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    toggle.addEventListener("click", () => {
+      <ul id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="Nosotros.html">Nosotros</a></li>
+        <li><a href="Blogs.html" class="active">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="icons" id="authArea">
+        <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+        <a href="login.html"><span class="material-icons">person</span></a>
+      </div>
+    </nav>
+    <script>
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu");
+      toggle.addEventListener("click", () => {
       menu.classList.toggle("show");
+      toggle.classList.toggle("active"); // <-- Añade esta línea
     });
-  </script>
-</header>
+    </script>
+  </header>
 
 
   <!-- MAIN -->
@@ -65,5 +63,6 @@
 
   <!-- Solo carga el script necesario -->
   <script src="/js/detalle_blog.js"></script>
+  <script src="/js/auth.js"></script>
 </body>
 </html>

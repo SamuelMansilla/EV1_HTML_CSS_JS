@@ -30,19 +30,24 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up" /></a>
+        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
       </div>
+
+      <!-- Botón hamburguesa -->
       <div class="menu-toggle" id="menu-toggle">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+
       <ul id="menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html">Productos</a></li>
         <li><a href="Nosotros.html">Nosotros</a></li>
-        <li><a href="Blogs.html">Blogs</a></li>
-        <li><a href="contacto.html" class="active">Contacto</a></li>
+        <li><a href="Blogs.html" class="active">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
-      <div class="icons">
+      <div class="icons" id="authArea">
         <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
         <a href="login.html"><span class="material-icons">person</span></a>
       </div>
@@ -51,8 +56,9 @@
       const toggle = document.getElementById("menu-toggle");
       const menu = document.getElementById("menu");
       toggle.addEventListener("click", () => {
-        menu.classList.toggle("show");
-      });
+      menu.classList.toggle("show");
+      toggle.classList.toggle("active"); // <-- Añade esta línea
+    });
     </script>
   </header>
 
@@ -100,5 +106,6 @@
 
   <!-- JS -->
   <script src="/js/contacto.js"></script>
+  <script src="/js/auth.js"></script>
 </body>
 </html>

@@ -185,44 +185,52 @@ footer button:hover {
 
 /* ===== RESPONSIVE MENU LATERAL OSCURO ===== */
 @media (max-width: 768px) {
-  .logo { display: none; }
+  .logo { 
+    display: none; 
+  }
+
   .menu-toggle { 
     display: flex; 
     order: -1; 
-    z-index: 1003; /* Aumentado para estar sobre el menú */
+    z-index: 3000; /* siempre por encima del menú */
+    position: relative;
   }
-  .icons { margin-left: auto; }
 
-  ul {
+  .icons { 
+    margin-left: auto; 
+  }
+
+  nav ul {
     position: fixed;
     top: 0;
     left: -260px;
     width: 260px;
     height: 100%;
-    background: linear-gradient(to right, rgba(55, 255, 20, 0.404), rgba(30, 143, 255, 0.404));
+    background: linear-gradient(to right, rgba(55, 255, 20, 0.4), rgba(30, 143, 255, 0.4));
     flex-direction: column;
     padding: 80px 20px 20px;
-    transition: left 0.4s ease, box-shadow 0.4s ease, filter 0.3s;
-    z-index: 1002; /* Aumentado para estar sobre el contenido */
+    transition: left 0.4s ease, box-shadow 0.4s ease;
+    z-index: 2500; /* debajo del botón toggle pero arriba del contenido */
     box-shadow: 4px 0 25px rgba(0,0,0,0.8);
     backdrop-filter: blur(6px);
-    z-index: 2000 !important;
   }
 
-  ul.show {
+  nav ul.show {
     left: 0;
     animation: slideIn 0.4s ease forwards;
-    background: linear-gradient(to right, rgba(55, 255, 20, 0.308), rgba(30, 143, 255, 0.308));
+    background: linear-gradient(to right, rgba(55, 255, 20, 0.3), rgba(30, 143, 255, 0.3));
   }
 
-  ul li { 
+  nav ul li { 
     margin: 12px 0; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.24); 
   }
 
-  ul li:last-child { border-bottom: none; }
+  nav ul li:last-child { 
+    border-bottom: none; 
+  }
 
-  ul li a {
+  nav ul li a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 500;
@@ -233,15 +241,15 @@ footer button:hover {
     border-radius: 5px;
   }
 
-  ul li a:hover {
+  nav ul li a:hover {
     color: var(--color-primary);
     padding-left: 10px;
     text-shadow: 0 0 5px var(--color-secondary);
     background: linear-gradient(to right, rgba(57,255,20,0.35), rgba(30,144,255,0.35));
   }
   
-  /* NUEVA REGLA: Cuando el menú está abierto, deshabilitar interacción con el contenido detrás */
-  ul.show + main {
+  /* Bloquea la interacción con el contenido cuando el menú está abierto */
+  body.menu-open main {
     pointer-events: none;
     filter: blur(2px);
   }
@@ -295,6 +303,14 @@ footer button:hover {
   color: #1E90FF;
   margin-bottom: 1rem;
 }
+
+/* Ocultar sección de categorías en móviles */
+@media (max-width: 768px) {
+  #categories {
+    display: none !important;
+  }
+}
+
 
 /* ===== PRODUCTOS ===== */
 .products {

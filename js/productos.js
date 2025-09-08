@@ -14,11 +14,11 @@ const products = [
 
 // Variables globales
 let currentCategory = 'all';
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('carrito')) || []; // Cambia 'cart' por 'carrito'
 
 // Guardar carrito en localStorage
 function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('carrito', JSON.stringify(cart)); // Cambia 'cart' por 'carrito'
 }
 
 // Función de agregar al carrito
