@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Mostrar saludo y botón salir
         authArea.innerHTML = `
             <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
-            <span style="color:#39FF14; margin-left:10px;">¡Hola, ${user.username}!</span>
+            <span style="color:#39FF14; margin-left:10px;">¡Hola, ${user.nombre}!</span>
             <button id="logoutBtn" class="btn btn-sm btn-danger" style="margin-left:10px;">Salir</button>
         `;
 
