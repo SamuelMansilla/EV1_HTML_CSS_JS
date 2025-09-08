@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/login.css">
   <link rel="icon" type="image/png" href="/img/favicon.ico" sizes="32x32">
   <title>Level-UP | Login</title>
 </head>
 <body>
-<<<<<<< HEAD
     <header>
     <nav>
         <div class="logo">
@@ -46,93 +46,58 @@
     });
     </script>
     </header>
-=======
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="/img/Logo_Level-U.webp" alt="Logo Level-Up"></a>
-      </div>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span><span></span><span></span>
-      </div>
-      <ul id="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="Nosotros.html">Nosotros</a></li>
-        <li><a href="Blogs.html">Blogs</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <div class="icons" id="authArea">
-        <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
-        <a href="login.html"><span class="material-icons">person</span></a>
-      </div>
-    </nav>
-    <script>
-      const toggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu");
-      toggle.addEventListener("click", () => {
-        menu.classList.toggle("show");
-      });
-    </script>
-  </header>
 
-  <div class="auth-container">
->>>>>>> 67f4e8f8cc62403d4b94733cba7071e4b7945ea1
+   <div class="auth-container">
 
     <!-- FORMULARIO LOGIN -->
     <div class="form-box" id="loginForm">
-      <h2>Iniciar Sesión</h2>
-      <form>
-        <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
-        <input type="password" id="loginPassword" placeholder="Contraseña" required>
-        <button type="submit">Entrar</button>
-      </form>
-      <div class="toggle-form">
-        ¿No tienes cuenta? <a href="#" onclick="toggleForms()">Regístrate aquí</a>
-      </div>
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+            <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="toggle-form">
+            ¿No tienes cuenta? <a href="#" onclick="toggleForms()">Regístrate aquí</a>
+        </div>
     </div>
 
     <!-- FORMULARIO REGISTRO -->
     <div class="form-box" id="registerForm" style="display:none;">
-      <h2>Registro</h2>
-      <form id="registerFormElement">
-        <input type="text" id="registerRun" placeholder="RUN (Ej: 19011022K)" required minlength="7" maxlength="9">
-        <input type="text" id="registerNombre" placeholder="Nombre" required maxlength="50">
-        <input type="text" id="registerApellidos" placeholder="Apellidos" required maxlength="100">
-        <input type="text" id="registerEmail" placeholder="Correo electrónico" required maxlength="100">
-        <input type="password" id="registerPassword" placeholder="Contraseña" required>
-        <input type="date" id="registerFechaNac" placeholder="Fecha de nacimiento (opcional)">
+        <h2>Registro</h2>
+        <form id="registerFormElement">
+            <input type="text" id="registerRun" placeholder="RUN (Ej: 19011022K)" required minlength="7" maxlength="9">
+            <input type="text" id="registerNombre" placeholder="Nombre" required maxlength="50">
+            <input type="text" id="registerApellidos" placeholder="Apellidos" required maxlength="100">
+            <input type="text" id="registerEmail" placeholder="Correo electrónico" required maxlength="100">
+            <input type="password" id="registerPassword" placeholder="Contraseña" required>
+            <input type="text" id="referralCode" placeholder="Código de referido">
+            <input type="date" id="registerFechaNac" placeholder="Fecha de nacimiento (opcional)">
 
-        <!-- Rol -->
-        <select id="registerRole" required>
-          <option value="">Selecciona tu rol</option>
-          <option value="cliente">Cliente</option>
-          <option value="admin">Administrador</option>
-          <option value="vendedor">Vendedor</option>
-        </select>
+            <!-- Rol -->
+            <select id="registerRole" required>
+                <option value="">Selecciona tu rol</option>
+                <option value="cliente">Cliente</option>
+                <option value="admin">Administrador</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
 
-        <!-- Región y Comuna -->
-        <select id="regionSelect" required>
-          <option value="">Selecciona Región</option>
-        </select>
-        <select id="comunaSelect" required>
-          <option value="">Selecciona Comuna</option>
-        </select>
+            <!-- Región y Comuna -->
+            <select id="regionSelect" required>
+                <option value="">Selecciona Región</option>
+            </select>
+            <select id="comunaSelect" required>
+                <option value="">Selecciona Comuna</option>
+            </select>
 
-<<<<<<< HEAD
-    <script src="/js/login.js"></script>
-    <script src="/js/auth.js"></script>
-=======
-        <button type="submit">Crear cuenta</button>
-      </form>
-      <div class="toggle-form">
-        ¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a>
-      </div>
+            <button type="submit">Registrarse</button>
+        </form>
+        <div class="toggle-form">
+            ¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a>
+        </div>
     </div>
 
-  </div>
-
-  <script src="/js/login.js"></script>
->>>>>>> 67f4e8f8cc62403d4b94733cba7071e4b7945ea1
+    <script src="/js/login.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>

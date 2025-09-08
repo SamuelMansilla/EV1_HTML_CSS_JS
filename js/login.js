@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function validateEmail(email) {
-  if (!email.trim()) return false;
-  if (email.length > 100) return false;
-  const emailRegex = /^[\w.-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
-  return emailRegex.test(email);
-}
+    if (!email.trim()) return false;
+    if (email.length > 100) return false;
+    const emailRegex = /^[\w.-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+    return emailRegex.test(email);
+  }
 
   function validateLength(value, max) {
     return value.trim().length > 0 && value.trim().length <= max;
@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!valid) return;
 
+    // --- Crear usuario con nivel, puntos y descuento ---
     const user = {
       run: run.value.trim(),
       nombre: nombre.value.trim(),
@@ -188,9 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
       role: role.value,
       region: region.value,
       comuna: comuna.value,
+      points: 0,            // Inicializa puntos
+      level: 1,             // Inicializa nivel
+      hasDuocDiscount: email.value.includes("duoc") || email.value.includes("@duocuc.cl") // Descuento activo si es correo DUOC
     };
 
     localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("currentUser", JSON.stringify(user)); // Para la sección de perfil
+    updateUserInterface(); // Actualiza interfaz si estás en la página principal
 
     alert("Usuario registrado con éxito. Ahora puedes iniciar sesión.");
     toggleForms();
@@ -206,6 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (user && user.email === email && user.password === password) {
+      localStorage.setItem("currentUser", JSON.stringify(user)); // Guarda usuario actual
+      updateUserInterface(); // Actualiza perfil en la interfaz
       alert(`Bienvenido ${user.nombre}`);
       window.location.href = user.role === "admin" ? "/admin/index.html" : "/index.html";
     } else {
@@ -213,13 +221,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // --- Sección de perfil ---
+  function updateUserInterface() {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const userProfile = document.getElementById("userProfile");
+    if (!userProfile) return;
+
+    if (currentUser) {
+      document.getElementById("userLevel").textContent = currentUser.level || 1;
+      document.getElementById("userPoints").textContent = currentUser.points || 0;
+      const discountEl = document.getElementById("userDiscount");
+      if (discountEl) discountEl.classList.toggle("hidden", !currentUser.hasDuocDiscount);
+    }
+  }
+
   // Regiones y comunas
   const regiones = {
-    "Metropolitana": ["Santiago", "Puente Alto", "Maipú"],
-    "Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué"],
-    "Biobío": ["Concepción", "Talcahuano", "Los Ángeles"],
-  };
-
+  "Arica y Parinacota": ["Arica", "Putre", "Camarones", "General Lagos"],
+  "Tarapacá": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Pica"],
+  "Antofagasta": ["Antofagasta", "Calama", "Mejillones", "Tocopilla"],
+  "Atacama": ["Copiapó", "Caldera", "Vallenar", "Chañaral"],
+  "Coquimbo": ["La Serena", "Coquimbo", "Ovalle", "Illapel"],
+  "Valparaíso": ["Valparaíso", "Viña del Mar", "San Antonio", "Quilpué"],
+  "Metropolitana de Santiago": ["Santiago", "Puente Alto", "Maipú", "Las Condes"],
+  "O’Higgins": ["Rancagua", "San Fernando", "Santa Cruz", "Rengo"],
+  "Maule": ["Talca", "Curicó", "Linares", "Cauquenes"],
+  "Ñuble": ["Chillán", "Chillán Viejo", "San Carlos", "Bulnes"],
+  "Biobío": ["Concepción", "Talcahuano", "Los Ángeles", "Coronel"],
+  "La Araucanía": ["Temuco", "Padre Las Casas", "Villarrica", "Angol"],
+  "Los Ríos": ["Valdivia", "La Unión", "Río Bueno", "Panguipulli"],
+  "Los Lagos": ["Puerto Montt", "Osorno", "Castro", "Ancud"],
+  "Aysén": ["Coyhaique", "Puerto Aysén", "Chile Chico", "Cochrane"],
+  "Magallanes y la Antártica Chilena": ["Punta Arenas", "Puerto Natales", "Porvenir", "Cabo de Hornos"]
+};
   Object.keys(regiones).forEach((region) => {
     const option = document.createElement("option");
     option.value = region;

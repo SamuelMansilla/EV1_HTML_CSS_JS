@@ -73,11 +73,12 @@
 <section class="container">
   <div class="user-profile" id="userProfile">
     <h3>¡Bienvenido, Gamer!</h3>
-  <div class="level-display">
-  <div class="level-badge">Nivel <span id="userLevel">1</span></div>
-  <div class="points-display">Puntos LevelUp: <span id="userPoints">0</span></div>
-  </div>
+    <div class="level-display">
+      <div class="level-badge">Nivel <span id="userLevel">1</span></div>
+      <div class="points-display">Puntos LevelUp: <span id="userPoints">0</span></div>
+    </div>
     <p id="userDiscount" class="hidden">¡Tienes un descuento activo del 20%! 🎉</p>
+    <p id="userReferral" class="referral-code hidden">Tu código de referido: <span id="referralCode"></span></p>
   </div>
 </section>
 
@@ -114,22 +115,38 @@
 </section>
 </main>
 
-<footer>
-  <p>© 2025 Level-UP Gamer - Todos los derechos reservados</p>
-  <div>
-    <a href="#">Juegos de Mesa</a>
-    <a href="#">Consolas</a>
-    <a href="#">Accesorios</a>
-    <a href="#">Computadores</a>
-  </div>
-  <form>
-    <input type="email" placeholder="Ingresa tu email">
-    <button type="submit">Suscribirse</button>
-  </form>
-</footer>
+<!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Level-Up Gamer</h3>
+                <p>Tu tienda gamer de confianza en Chile. Productos de calidad para los verdaderos gamers.</p>
+                <div class="social-share">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <p><i class="fas fa-truck"></i> Despacho a todo Chile</p>
+                <p><i class="fas fa-shield-alt"></i> Productos auténticos</p>
+                <p><i class="fas fa-users"></i> Comunidad gamer</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@levelupgamer.cl</p>
+                <p><i class="fas fa-phone"></i> +56 9 1234 5678</p>
+                <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+            </div>
+        </div>
+    </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/auth.js"></script>
 <script src="/js/productos.js"></script>
+<script src="/js/carrito.js"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>

@@ -1,30 +1,35 @@
 /* ===== LOGIN & REGISTRO ===== */
 .auth-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  justify-content: center; /* centrado horizontal */
+  align-items: center;     /* centrado vertical */
+  min-height: 100vh;       /* ocupa toda la altura de la ventana */
+  width: 100vw;            /* ocupa todo el ancho */
   background: radial-gradient(circle at center, #0a0a0a 60%, #000 100%);
   padding: 20px;
+  box-sizing: border-box;  /* evita que padding afecte el ancho/alto */
 }
 
+/* Caja de formulario */
 .form-box {
-  background: var(--color-card-bg);
+  background: var(--color-card-bg, #111);
   border: 1px solid #333;
   border-radius: 16px;
   padding: 40px;
   max-width: 500px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-secondary);
+  box-shadow: 0 0 20px var(--color-primary, #39FF14), 0 0 30px var(--color-secondary, #1E90FF);
   animation: fadeInLeft 1s forwards;
+  position: relative;
 }
 
+/* Título del formulario */
 .form-box h2 {
   margin-bottom: 25px;
   font-size: 32px;
-  color: var(--color-primary);
-  text-shadow: 0 0 10px var(--color-secondary);
+  color: var(--color-primary, #39FF14);
+  text-shadow: 0 0 10px var(--color-secondary, #1E90FF);
 }
 
 /* === Inputs y Selects === */
@@ -38,14 +43,14 @@
   border: none;
   outline: none;
   background: #222;
-  color: var(--color-text);
+  color: var(--color-text, #fff);
   transition: 0.3s;
 }
 
 .form-box input:focus,
 .form-box select:focus {
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 0 10px var(--color-primary);
+  border: 1px solid var(--color-primary, #39FF14);
+  box-shadow: 0 0 10px var(--color-primary, #39FF14);
 }
 
 /* === Mensajes de error === */
@@ -61,10 +66,15 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Animación de aparición */
+/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-3px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* === Botón === */
@@ -72,8 +82,8 @@
   width: 100%;
   padding: 14px;
   margin-top: 15px;
-  background: var(--color-primary);
-  color: var(--color-bg);
+  background: var(--color-primary, #39FF14);
+  color: var(--color-bg, #000);
   font-weight: bold;
   border: none;
   border-radius: 10px;
@@ -83,9 +93,9 @@
 }
 
 .form-box button:hover {
-  background: var(--color-secondary);
-  color: var(--color-text);
-  box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-secondary);
+  background: var(--color-secondary, #1E90FF);
+  color: var(--color-text, #fff);
+  box-shadow: 0 0 20px var(--color-primary, #39FF14), 0 0 30px var(--color-secondary, #1E90FF);
 }
 
 /* === Links debajo de los formularios === */
@@ -96,19 +106,22 @@
 }
 
 .toggle-form a {
-  color: var(--color-secondary);
+  color: var(--color-secondary, #1E90FF);
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
-.toggle-form a:hover { color: var(--color-primary); }
+.toggle-form a:hover { 
+  color: var(--color-primary, #39FF14); 
+}
 
 /* Ocultar el registro por defecto */
 #registerForm { display: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
+  .auth-container { padding: 10px; }
   .form-box { padding: 30px 20px; max-width: 90%; }
   .form-box h2 { font-size: 26px; }
   .form-box input, 

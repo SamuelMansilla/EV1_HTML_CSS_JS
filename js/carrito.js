@@ -52,7 +52,19 @@ function vaciarCarrito() {
 
 // Calcular total
 function calcularTotal() {
-  return carrito.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  let total = carrito.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  // Aplica descuento si el usuario tiene descuento activo o usó referido
+  if (
+    currentUser &&
+    (currentUser.hasDuocDiscount ||
+      (currentUser.usedReferral && currentUser.usedReferral !== currentUser.referralCode))
+  ) {
+    total = total * 0.8; // 20% de descuento
+  }
+
+  return Math.round(total);
 }
 
 // Mostrar carrito en el DOM
