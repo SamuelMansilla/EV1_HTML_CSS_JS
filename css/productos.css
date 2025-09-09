@@ -40,9 +40,9 @@
 .card img {
   width: 100%;
   height: auto;
-  max-height: 240px; /* 🔼 más alto para tarjetas grandes */
-  object-fit: contain; /* 🔄 muestra toda la imagen sin recortes */
-  background-color: #111; /* opcional: fondo para imágenes con transparencia */
+  max-height: 240px;
+  object-fit: contain; 
+  background-color: #111; 
   border-radius: 8px;
   margin-bottom: 15px;
 }

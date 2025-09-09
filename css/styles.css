@@ -196,7 +196,7 @@ li a:hover {
   .menu-toggle { 
     display: flex; 
     order: -1; 
-    z-index: 3000; /* siempre por encima del menú */
+    z-index: 3000;
     position: relative;
   }
 
@@ -214,7 +214,7 @@ li a:hover {
     flex-direction: column;
     padding: 80px 20px 20px;
     transition: left 0.4s ease, box-shadow 0.4s ease;
-    z-index: 2500; /* debajo del botón toggle pero arriba del contenido */
+    z-index: 2500;
     box-shadow: 4px 0 25px rgba(0,0,0,0.8);
     backdrop-filter: blur(6px);
   }
@@ -370,15 +370,15 @@ li a:hover {
 }
   body.menu-open .card.resumen {
   pointer-events: none;
-  opacity: 0.5;  /* opcional: difuminar un poco */
+  opacity: 0.5;  
 }
 .user-profile {
-    background: rgba(30, 144, 255, 0.1); /* Fondo semitransparente */
+    background: rgba(30, 144, 255, 0.1); 
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
     border: 2px solid #1E90FF;
-    display: none; /* Se muestra cuando se agrega la clase .active */
+    display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }

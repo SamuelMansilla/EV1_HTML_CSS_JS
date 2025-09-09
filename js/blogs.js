@@ -1,5 +1,3 @@
-// Lista de blogs
-// blogs.js
 const blogs = [
  {
   id: "BL001",

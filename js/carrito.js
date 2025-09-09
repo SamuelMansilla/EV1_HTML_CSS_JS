@@ -61,7 +61,7 @@ function calcularTotal() {
     (currentUser.hasDuocDiscount ||
       (currentUser.usedReferral && currentUser.usedReferral !== currentUser.referralCode))
   ) {
-    total = total * 0.8; // 20% de descuento
+    total = total * 0.8; 
   }
 
   return Math.round(total);

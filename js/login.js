@@ -189,14 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
       role: role.value,
       region: region.value,
       comuna: comuna.value,
-      points: 0,            // Inicializa puntos
-      level: 1,             // Inicializa nivel
+      points: 0,            
+      level: 1,            
       hasDuocDiscount: email.value.includes("duoc") || email.value.includes("@duocuc.cl") // Descuento activo si es correo DUOC
     };
 
     localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("currentUser", JSON.stringify(user)); // Para la sección de perfil
-    updateUserInterface(); // Actualiza interfaz si estás en la página principal
+    localStorage.setItem("currentUser", JSON.stringify(user)); 
+    updateUserInterface();
 
     alert("Usuario registrado con éxito. Ahora puedes iniciar sesión.");
     toggleForms();
@@ -212,8 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (user && user.email === email && user.password === password) {
-      localStorage.setItem("currentUser", JSON.stringify(user)); // Guarda usuario actual
-      updateUserInterface(); // Actualiza perfil en la interfaz
+      localStorage.setItem("currentUser", JSON.stringify(user)); 
+      updateUserInterface(); 
       alert(`Bienvenido ${user.nombre}`);
       window.location.href = user.role === "admin" ? "/admin/index.html" : "/index.html";
     } else {

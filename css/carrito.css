@@ -100,14 +100,14 @@ button.btn-outline-secondary {
 
 /* Sticky resumen del carrito */
 .card.resumen {
-  position: sticky;  /* ya estaba sticky-top */
+  position: sticky; 
   top: 20px;
-  z-index: 1000;     /* MENOR que el menú lateral (2000) */
+  z-index: 1000;    
   background-color: #111;
   color: #fff;
 }
 
 body.menu-open .card.resumen {
   pointer-events: none;
-  opacity: 0.5;  /* opcional: difuminar un poco */
+  opacity: 0.5; 
 }

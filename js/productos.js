@@ -1,28 +1,25 @@
-// productos.js (versión robusta para categorías)
-
-// Clave en localStorage usada por admin
 const STORAGE_KEY = "productos_levelup";
 
 // Productos por defecto (se usan si localStorage está vacío)
 const defaultProducts = [
-    { code: "JM001", category: "Juegos de Mesa", name: "Catan", price: 29990, image: "/img/catan.png", description: "Un clásico juego de estrategia...", rating: 4.5, reviews: 128 },
-    { code: "JM002", category: "Juegos de Mesa", name: "Carcassonne", price: 24990, image: "/img/carcassone.webp", description: "Un juego de colocación de fichas...", rating: 4.3, reviews: 95 },
-    { code: "AC001", category: "Accesorios", name: "Controlador Inalámbrico Xbox Series X", price: 59990, image: "/img/mando xbox.png", description: "Ofrece una experiencia de juego cómoda...", rating: 4.7, reviews: 203 },
-    { code: "AC002", category: "Accesorios", name: "Auriculares Gamer HyperX Cloud II", price: 79990, image: "/img/audifonos hyperx.webp", description: "Proporcionan un sonido envolvente...", rating: 4.8, reviews: 156 },
-    { code: "CO001", category: "Consolas", name: "PlayStation 5", price: 549990, image: "/img/ps5.webp", description: "La consola de última generación...", rating: 4.9, reviews: 312 },
-    { code: "CG001", category: "Computadores Gamers", name: "PC Gamer ASUS ROG Strix", price: 1299990, image: "/img/pc gamer.png", description: "Un potente equipo diseñado para gamers...", rating: 4.6, reviews: 87 },
-    { code: "SG001", category: "Sillas Gamers", name: "Silla Gamer Secretlab Titan", price: 349990, image: "/img/silla gamer.webp", description: "Diseñada para el máximo confort...", rating: 4.4, reviews: 221 },
-    { code: "MS001", category: "Mouse", name: "Mouse Gamer Logitech G502 HERO", price: 49990, image: "/img/mouse.webp", description: "Con sensor de alta precisión...", rating: 4.7, reviews: 189 },
-    { code: "MP001", category: "Mousepad", name: "Mousepad Razer Goliathus Extended Chroma", price: 29990, image: "/img/mousepad.png", description: "Área de juego amplia con iluminación RGB...", rating: 4.5, reviews: 143 },
-    { code: "PP001", category: "Poleras Personalizadas", name: "Polera Gamer Personalizada 'Level-Up'", price: 14990, image: "/img/polera.webp", description: "Camiseta cómoda y estilizada...", rating: 4.2, reviews: 76 }
+    { code: "JM001", category: "Juegos de Mesa", name: "Catan", price: 29990, image: "/img/catan.png", description: "Un clásico juego de estrategia donde los jugadores compiten por colonizar y expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en familia o con amigos.", rating: 4.5, reviews: 128 },
+    { code: "JM002", category: "Juegos de Mesa", name: "Carcassonne", price: 24990, image: "/img/carcassone.webp", description: "Un juego de colocación de fichas donde los jugadores construyen el paisaje alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de aprender.", rating: 4.3, reviews: 95 },
+    { code: "AC001", category: "Accesorios", name: "Controlador Inalámbrico Xbox Series X", price: 59990, image: "/img/mando xbox.png", description: "Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC.", rating: 4.7, reviews: 203 },
+    { code: "AC002", category: "Accesorios", name: "Auriculares Gamer HyperX Cloud II", price: 79990, image: "/img/audifonos hyperx.webp", description: "Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad durante largas sesiones de juego.", rating: 4.8, reviews: 156 },
+    { code: "CO001", category: "Consolas", name: "PlayStation 5", price: 549990, image: "/img/ps5.webp", description: "La consola de última generación de Sony, que ofrece gráficos impresionantes y tiempos de carga ultrarrápidos para una experiencia de juego inmersiva.", rating: 4.9, reviews: 312 },
+    { code: "CG001", category: "Computadores Gamers", name: "PC Gamer ASUS ROG Strix", price: 1299990, image: "/img/pc gamer.png", description: "UUn potente equipo diseñado para los gamers más exigentes, equipado con los últimos componentes para ofrecer un rendimiento excepcional en cualquier juego.", rating: 4.6, reviews: 87 },
+    { code: "SG001", category: "Sillas Gamers", name: "Silla Gamer Secretlab Titan", price: 349990, image: "/img/silla gamer.webp", description: " Diseñada para el máximo confort, esta silla ofrece un soporte ergonómico y personalización ajustable para sesiones de juego prolongadas.", rating: 4.4, reviews: 221 },
+    { code: "MS001", category: "Mouse", name: "Mouse Gamer Logitech G502 HERO", price: 49990, image: "/img/mouse.webp", description: "Con sensor de alta precisión y botones personalizables, este mouse es ideal para gamers que buscan un control preciso y personalización.", rating: 4.7, reviews: 189 },
+    { code: "MP001", category: "Mousepad", name: "Mousepad Razer Goliathus Extended Chroma", price: 29990, image: "/img/mousepad.png", description: "Ofrece un área de juego amplia con iluminación RGB personalizable, asegurando una superficie suave y uniforme para el movimiento del mouse.", rating: 4.5, reviews: 143 },
+    { code: "PP001", category: "Poleras Personalizadas", name: "Polera Gamer Personalizada 'Level-Up'", price: 14990, image: "/img/polera.webp", description: "Una camiseta cómoda y estilizada, con la posibilidad de personalizarla con tu gamer tag o diseño favorito.", rating: 4.2, reviews: 76 }
 ];
 
 // Normaliza texto de categoría: quita tildes, trim, lowercase, colapsar espacios
 function normalizeCategory(str) {
     if (!str && str !== "") return "otros";
     return String(str)
-        .normalize('NFD')                   // separa caracteres + diacríticos
-        .replace(/[\u0300-\u036f]/g, '')    // quita diacríticos (tildes)
+        .normalize('NFD')                  
+        .replace(/[\u0300-\u036f]/g, '') 
         .trim()
         .toLowerCase()
         .replace(/\s+/g, ' ');
@@ -56,8 +53,8 @@ let products = rawProducts.map(p => {
     const categoryNormalized = normalizeCategory(rawCategory);
     return {
         code: code,
-        category: rawCategory,           // categoría "legible"
-        categoryNormalized: categoryNormalized, // categoría normalizada para comparar
+        category: rawCategory,          
+        categoryNormalized: categoryNormalized, 
         name: p.nombre || p.name || '',
         price: Number(p.precio || p.price || 0),
         image: p.imagen || p.image || '/img/nuevo.png',
@@ -69,11 +66,11 @@ let products = rawProducts.map(p => {
 
 // Variables globales
 let currentCategory = 'all';
-let cart = JSON.parse(localStorage.getItem('carrito')) || []; // Cambia 'cart' por 'carrito'
+let cart = JSON.parse(localStorage.getItem('carrito')) || []; 
 
 // Guardar carrito en localStorage
 function saveCart() {
-    localStorage.setItem('carrito', JSON.stringify(cart)); // Cambia 'cart' por 'carrito'
+    localStorage.setItem('carrito', JSON.stringify(cart));
 }
 
 // Agregar al carrito
@@ -101,7 +98,6 @@ function loadProducts() {
     products.forEach(p => {
         const card = document.createElement('div');
         card.className = 'card';
-        // ponemos la categoría normalizada en el data attribute
         card.dataset.category = p.categoryNormalized;
         card.dataset.name = p.name.toLowerCase();
         card.dataset.price = p.price;
@@ -146,7 +142,7 @@ function filterProducts() {
     const normCurrent = currentCategory === 'all' ? 'all' : normalizeCategory(currentCategory);
 
     cards.forEach(card => {
-        const cat = card.dataset.category; // ya está normalizada en loadProducts
+        const cat = card.dataset.category;
         const name = card.dataset.name;
         const price = parseInt(card.dataset.price, 10) || 0;
 
